@@ -1,8 +1,19 @@
 library vortex_engine;
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 part './nav/views.dart';
+part './core/vortex_canvas.dart';
+part './sprites/sprite.dart';
+part './sprites/spritesheet.dart';
+part './sprites/sprite_image.dart';
+part './layout/position.dart';
+part './services/keyboard_service.dart';
+part './utils/dimension_utils.dart';
+part './utils/types.dart';
 
 typedef WidgetFn = Widget Function(BuildContext);
 
@@ -18,6 +29,7 @@ class VortexGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: VortexLaunchView(initialRoute: initialRoute),
       routes: routes,
     );
