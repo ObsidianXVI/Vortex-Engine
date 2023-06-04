@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 part './nav/views.dart';
+part './nav/game_view.dart';
 part './core/vortex_canvas.dart';
+part './core/game_configs.dart';
 part './sprites/sprite.dart';
 part './sprites/spritesheet.dart';
 part './sprites/sprite_image.dart';
@@ -19,11 +21,11 @@ part './utils/types.dart';
 typedef WidgetFn = Widget Function(BuildContext);
 
 class VortexGame extends StatelessWidget {
-  final AssetManager assetManager;
+  final GameConfigs gameConfigs;
   final String initialRoute;
   final Map<String, WidgetFn> routes;
   const VortexGame({
-    required this.assetManager,
+    required this.gameConfigs,
     required this.routes,
     required this.initialRoute,
     super.key,
@@ -35,7 +37,7 @@ class VortexGame extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: VortexLaunchView(
         initialRoute: initialRoute,
-        assetManager: assetManager,
+        assetManager: gameConfigs.assetManager,
       ),
       routes: routes,
     );
